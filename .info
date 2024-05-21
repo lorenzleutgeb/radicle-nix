@@ -1,0 +1,18 @@
+os
+	NixOS related
+
+os/module/services/radicle.nix
+	for Radicle seed nodes
+
+hm
+	home-manager related
+
+hm/module/programs/radicle.nix
+	for configuration of Radicle
+
+hm/module/services/radicle.nix
+	for managing Radicle deamons like `radicle-{node,httpd}`
+	using systemd user units
+
+pkg
+	packages (in flat Nix RFC 140 style)

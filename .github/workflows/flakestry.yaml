@@ -1,0 +1,19 @@
+name: flakestry
+on:
+    push: { branches: [ "main" ] }
+    workflow_dispatch:
+        inputs:
+            ref:
+                description: "The existing reference to publish"
+                type: "string"
+                required: true
+jobs:
+    publish:
+        runs-on: ubuntu-22.04
+        permissions:
+            id-token: "write"
+            contents: "read"
+        steps:
+            - uses: flakestry/flakestry-publish@main
+              continue-on-error: true
+              with: { ref: "${{ inputs.ref || github.ref }}" }
